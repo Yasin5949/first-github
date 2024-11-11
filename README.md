@@ -1,2 +1,2 @@
 # first-github
-directory
+Inventory Management System
