@@ -7,5 +7,9 @@ public class Product {
         this.quantity=quantity;
         this.price=price;
     }
+    void display(){
+
+        System.out.println(productName+"\t"+quantity+"\t"+price);
+    }
 
 }
