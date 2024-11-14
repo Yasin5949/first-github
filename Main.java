@@ -18,6 +18,7 @@ public class Main {
                     products.add(new Product(name,quantity,price));
                     break;
                 case 2:
+                    boolean located=false;
                     if(products.isEmpty()){
                         System.out.println("The Inventory Is Empty!");
                         break;
@@ -27,6 +28,7 @@ public class Main {
                         String searchName=read.next();
                         for(Product pro:products){
                             if(pro.productName.equals(searchName)){
+                                located=true;
                                 System.out.println("What Do You Want To Modify.?");
                                 System.out.println("1.Name\n2.Quantity\n3.Price\n4.Quantity And Price\nEnter Your Choice:");
                                 int Choice=read.nextInt();
@@ -35,16 +37,19 @@ public class Main {
                                         System.out.println("Enter The Product Name:");
                                         String newName=read.next();
                                         pro.productName=newName;
+                                        System.out.println("Name Modified Successfully!");
                                         break;
                                     case 2:
                                         System.out.println("Enter The New Quantity.");
                                         int newQuantity=read.nextInt();
                                         pro.quantity=newQuantity;
+                                        System.out.println("Quantity Modified Successfully!");
                                         break;
                                     case 3:
                                         System.out.println("Enter The New Price.");
                                         float newPrice=read.nextFloat();
                                         pro.price=newPrice;
+                                        System.out.println("Price Modified Successfully!");
                                         break;
                                     case 4:
                                         System.out.println("Enter The New Quantity");
@@ -53,6 +58,7 @@ public class Main {
                                         System.out.println("Enter The New Price.");
                                         float newprice=read.nextFloat();
                                         pro.price=newprice;
+                                        System.out.println("Product Quantity And Price Modified Successfully!");
                                         break;
 
 
@@ -60,11 +66,14 @@ public class Main {
 
                             }
                         }
+                        if(!located){
                         System.out.println("No Product Named "+searchName+" Was Found In The Inventory");
 
                     }
+                    }
                     break;
                 case 3:
+                    boolean found=false;
                     if(products.isEmpty()){
                         System.out.println("The Inventory Is Empty!");
                         break;
@@ -76,10 +85,13 @@ public class Main {
                             if(pro.productName.equals(search)){
                                 System.out.println("Product Found!");
                                 pro.display();
+                                found=true;
                                 break;
                             }
                         }
-                        System.out.println("Product Not Found!");
+                        if(!found) {
+                            System.out.println("Product Not Found!");
+                        }
 
                     }
                     break;
@@ -113,10 +125,6 @@ public class Main {
 
                     }
                     break;
-
-
-
-
             }
 
         }while(choice!=6);
